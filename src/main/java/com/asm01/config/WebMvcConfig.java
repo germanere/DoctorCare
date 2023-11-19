@@ -33,7 +33,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
 	  public void addResourceHandlers(ResourceHandlerRegistry registry) {
 	    registry
 	        .addResourceHandler("/static/**")
-	        .addResourceLocations("classpath:/static/")
+	        .addResourceLocations("/WEB-INF/views/static/")
 	        .setCachePeriod(3600)
 	        .resourceChain(true)
 	        .addResolver(new PathResourceResolver());
