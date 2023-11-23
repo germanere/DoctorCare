@@ -1,11 +1,12 @@
 package com.asm01.service;
 
 import java.util.List;
-
+import java.util.Optional;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+import com.asm01.config.ResourceNotFoundException;
 import com.asm01.entity.User_Donation;
 import com.asm01.repository.DonationuserRepository;
 
@@ -32,7 +33,16 @@ public class UserDonationService {
 	}
 	
     @Transactional
-    public User_Donation getUserDntById(int id) {
-        return userdonaterepository.findAll().stream().filter(x -> x.getId()==id).findFirst().get();	
+    public User_Donation getUserDntById(int id) throws ResourceNotFoundException {
+        Optional<User_Donation> uOptional = userdonaterepository.findAll()
+                .stream()
+                .filter(x -> x.getId()==id)
+                .findFirst();
+
+        if (uOptional.isPresent()) {
+            return uOptional.get();
+        } else {
+            throw new ResourceNotFoundException("User Donate not found"+id);
+        }	
     }
 }

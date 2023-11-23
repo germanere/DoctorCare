@@ -1,5 +1,6 @@
 package com.asm01.entity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -29,13 +30,13 @@ public class Donation {
 
     @Column(name="name")
     private String name;
-
+ 
     private int status = 0; //0: CREATED,1: PROCESSING,2: END,3: CLOSED
     
-    @Column(name="dStart")
+    @Column(name="dstart")
     private String dStart;
     
-    @Column(name="dEnd")
+    @Column(name="dend")
     private String dEnd;
     
     @Column(name="dorg")
@@ -52,9 +53,8 @@ public class Donation {
 		this.ddescribe = ddescribe;
 	}
 	
-	@OneToMany(fetch = FetchType.EAGER,mappedBy = "donation")
+	@OneToMany(fetch = FetchType.EAGER,mappedBy = "donation",cascade = CascadeType.ALL, orphanRemoval = true)
     private List <User_Donation> userDonations;
-
 
     public int getStatus() {
 		return status;

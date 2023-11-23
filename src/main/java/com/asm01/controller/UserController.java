@@ -35,7 +35,6 @@ public class UserController {
 	    List<Donation> donations = donationService.getDonate();
 	    model.addAttribute("donations", donations);
 	    return "public/home";
-
     }
     
     @PostMapping("/adduserdonation")
@@ -66,7 +65,6 @@ public class UserController {
 	    		total += user_Donation.getMoney();
 	    	}
 	    }
-
 	    theModel.addAttribute("sumMoney", total);
         return "public/detail";
     }

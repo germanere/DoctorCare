@@ -166,11 +166,7 @@
                 <th style="width: 220px ">Hành động</th>
               </tr>
               </thead>
-              <tfoot>
-              <tr>
 
-              </tr>
-              </tfoot>
               <tbody>
     			<input type="hidden" value="${donations.size()}" id="dodai" />
 				<c:forEach var="dnt1" items="${donations}">

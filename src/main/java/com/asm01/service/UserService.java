@@ -42,8 +42,16 @@ public class UserService {
     
     @Transactional
     public User getUserByFullName(String name) throws ResourceNotFoundException {
-//        return userRepository.findUserByName(name).get();
-        return userRepository.findAll().stream().filter(x -> x.getFullname().equalsIgnoreCase(name)).findFirst().get();	
+        Optional<User> user = userRepository.findAll()
+                .stream()
+                .filter(x -> x.getFullname().equalsIgnoreCase(name))
+                .findFirst();
+
+        if (user.isPresent()) {
+            return user.get();
+        } else {
+            throw new ResourceNotFoundException("User not found for name: " + name);
+        }
     }
     
     @Transactional

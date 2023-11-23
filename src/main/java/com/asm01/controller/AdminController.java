@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import com.asm01.config.ResourceNotFoundException;
 import com.asm01.dto.CreateUserDto;
 import com.asm01.dto.UserDonationDto;
 import com.asm01.entity.Donation;
@@ -37,6 +38,7 @@ public class AdminController {
     public String Donation(Model theModel){
     	List<Donation> donate = donateservice.getDonate();
         theModel.addAttribute("donations", donate);
+        System.out.println("hey bitch !!"+donate.get(0).getdStart());
         return "admin/donation";
     }
 
@@ -117,7 +119,7 @@ public class AdminController {
     }
     
     @PostMapping("/deldonate")
-	public String deletedonate(@RequestParam("idUser")int theId) {
+	public String deletedonate(@RequestParam("idUser")int theId) throws ResourceNotFoundException {
     	donateservice.deleteDonatate(theId);
     	return "redirect:/admin/donation";
     }

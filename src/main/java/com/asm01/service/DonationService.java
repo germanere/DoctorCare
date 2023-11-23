@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import com.asm01.config.ResourceNotFoundException;
 import com.asm01.entity.Donation;
 import com.asm01.repository.DonationRepository;
-
 import jakarta.transaction.Transactional;
 
 @Service
@@ -36,22 +35,19 @@ public class DonationService {
     public void saveDonate(Donation thedonate) {
         donationRepository.save(thedonate);
     }
-
-   
+  
     @Transactional
-    public Donation getDonate(int id) throws ResourceNotFoundException {
-        return donationRepository.findById(id).orElseThrow(
-            );
+    public Donation getDonate(int id)  {
+        return donationRepository.findById(id).get();
     }
     
     @Transactional
-    public void deleteDonatate(int theId) {
+    public void deleteDonatate(int theId) throws ResourceNotFoundException {
 		Optional<Donation> result = donationRepository.findById(theId);
 		if (result.isPresent()) {
 			Donation donation = result.get();
 			if (donation.getStatus() == 0) {	// Nếu donation có trạng thái là mới tạo thì mới được xóa
 				donationRepository.delete(donation);
-				System.out.println("Delete donation (id = " + theId + ") successfully");
 			}
 		}
     }

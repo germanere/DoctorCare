@@ -107,7 +107,7 @@
                     <li style="margin-bottom: 20px" class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center ">
                         <div class="job-listing-about d-sm-flex custom-width w-100 justify-content-between mx-4">
                             <div class="job-listing-position custom-width  mb-3 mb-sm-0" style="padding: 10px;width: 250px">
-                                <h2><a style="width:200px ;height: 65px;" href="/PRJ321_ASM01_4.0/Detail/${dnt1.code}"></a>${dnt1.name} - ${dnt1.code}</h2>                                                                  
+                                <h2><a style="width:200px ;height: 65px;" href="${pageContext.request.contextPath}/Detail/${dnt1.code}"></a>${dnt1.name} - ${dnt1.code}</h2>                                                                  
                             </div>
                             <div class="nut">
 								 <c:if test = "${dnt1.status==0}">
@@ -141,7 +141,7 @@
                             </div>
                             <div class="job-listing-location mb-3 mb-sm-0 custom-width w-25" style="padding: 10px;">
                                 <span class="icon-room"></span> <span>${dnt1.dOrg}</span><br>
-                                <strong${dnt1.phonenum}></strong><br>
+                                <strong>${dnt1.phonenum}</strong><br>
                             </div>
                         </div>
                         
@@ -172,7 +172,7 @@
                                                 <input type="hidden" class="form-control" placeholder=""
                                                        id="addname" name="idUser" value="1" >
                                                 <input type="hidden" class="form-control" placeholder=""
-                                                       id="addname" name="idDonation" value = "${dnt1.id }" required>
+                                                       id="addname" name="idDonation" value ="${dnt1.id}" required>
 
                                                 <label for="addname"
                                                        class="col-form-label">Lời nhắn:</label>
