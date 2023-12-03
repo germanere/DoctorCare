@@ -54,7 +54,7 @@
 			<ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
 				<li class="nav-item dropdown"><a th:if="${session.admin}"
 					class="nav-link dropdown-toggle"
-					href="/PRJ321_ASM01_4.0/admin/login" role="button"><i
+					href="${pageContext.request.contextPath}/admin/login" role="button"><i
 						class="fas fa-user fa-fw"></i><span> Logout</span></a>
 					<ul class="dropdown-menu dropdown-menu-end"
 						aria-labelledby="navbarDropdown1">
@@ -467,7 +467,7 @@
 	</div>
 
 	<script
-		src="static/admin1/assets/js/JQuery3.3.1.js"></script>
+		src="${pageContext.request.contextPath}/static/admin1/assets/js/JQuery3.3.1.js"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 	<script

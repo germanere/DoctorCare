@@ -209,7 +209,7 @@
 				  
 				  <!-- Nếu donation mới tạo thì hiển thị nút Quyên góp -->
 				  <c:if test="${dnt1.status == 0}">
-    				<form action="/PRJ321_ASM01_4.0/admin/change-status" method="post" style="margin-left: 110px; margin-top: -38px">
+    				<form action="change-status" method="post" style="margin-left: 110px; margin-top: -38px">
         			<input type="hidden" class="form-control" id="id" name="donationId" value="${dnt1.id}">
         		  	<button type="submit" style="width: 105px" class="btn btn-success">Quyên góp</button>
     				</form>
@@ -217,14 +217,14 @@
 				  
 				  <!-- Nếu donation ở trạng thái đang quyên góp thì hiển thị nút kết thúc quyên góp -->				  
 				  <c:if test="${dnt1.status == 1}">
-				    <form action="/PRJ321_ASM01_4.0/admin/change-status" method="post" style="margin-top: 5px">
+				    <form action="change-status" method="post" style="margin-top: 5px">
 				    <input type="hidden" class="form-control" id="id" name="donationId" value="${dnt1.id}">
 				    <button type="submit" style="width: 105px" class="btn btn-success">Kết thúc</button>
 				    </form>
 				 </c:if>
 				 <!-- Nếu donation ở trạng thái kết thúc thì hiển thị nút Đóng quyên góp -->
 				  <c:if test="${dnt1.status == 2}">
-				    <form action="/PRJ321_ASM01_4.0/admin/change-status" method="post" style="margin-top: 5px">
+				    <form action="change-status" method="post" style="margin-top: 5px">
 				     <input type="hidden" class="form-control" id="id" name="donationId" value="${dnt1.id}">
 				     <button type="submit" style="width: 105px" class="btn btn-success">Đóng</button>
 				    </form>

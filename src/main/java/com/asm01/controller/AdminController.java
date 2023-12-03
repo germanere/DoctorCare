@@ -37,8 +37,7 @@ public class AdminController {
     @RequestMapping(value = "/donation",method = RequestMethod.GET)
     public String Donation(Model theModel){
     	List<Donation> donate = donateservice.getDonate();
-        theModel.addAttribute("donations", donate);
-        System.out.println("hey bitch !!"+donate.get(0).getdStart());
+        theModel.addAttribute("donations", donate);	
         return "admin/donation";
     }
 

@@ -18,9 +18,9 @@ public class UserService {
     @Autowired
     private UserDtoRepository userRepository;
     
+    @Autowired
     private RoleService roleService;
 
-    
     @Transactional
     public List < User > getUsers() {
         return userRepository.findAll();
@@ -72,7 +72,6 @@ public class UserService {
 		}
 	}
 	
-	
 	@Transactional
 	public void updateUser(int userId, String fullName, int phoneNumber,String email, String address,String username,int roleId) {
 		Optional<User> result = userRepository.findById(userId);
@@ -82,7 +81,7 @@ public class UserService {
 			user.setEmail(email);
 			user.setPhone(phoneNumber);
 			user.setAddress(address);
-			user.setUsername(username);
+			user.setUsername(username);	
 			// Kiểm tra role có thay đổi không, nếu thay đổi thì update lại
 			if (user.getRole().getId() != roleId) {
 				Role role = roleService.getRole(roleId);
